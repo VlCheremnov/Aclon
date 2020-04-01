@@ -1,0 +1,34 @@
+// Стандартный шрифт
+body
+	font-family: 'Roboto', sans-serif
+	color: $c-main
+
+// Акцентный шрифт
+@for $i from 1 through 6
+	.accent-font,h#{$i}
+		font-family: 'El Messiri', sans-serif
+
+// Квадратные кнопки
+.square-button
+	display: flex
+	justify-content: center
+	align-items: center
+	width: 71px
+	height: 71px
+
+	border: 1px solid $c-main
+	
+	transition: background .2s ease
+	&__icon
+		fill: $c-main
+		transition: fill .2s ease
+	
+	&:hover
+		background: $c-main
+	&:hover &__icon
+		fill: $c-white
+
+.container
+	display: block
+	width: 100%
+	min-height: 560px

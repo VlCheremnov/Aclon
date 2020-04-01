@@ -1,0 +1,38 @@
+.custom-cursor
+  $cursor-size: 22px
+  $scale-before-cursor: 2
+
+  display: block
+  width: $cursor-size
+  height: $cursor-size
+
+  border-radius: 50%
+  border: 1px solid $c-accent-dark
+  background: rgba($c-accent, .6)
+
+  position: fixed
+  top: #{-$cursor-size/2}
+  left: #{-$cursor-size/2}
+
+  transform: translate(50vw, 50vh)
+
+  z-index: 1000
+
+  pointer-events: none
+
+  &__outer
+    display: block
+    width: #{$cursor-size * $scale-before-cursor}
+    height: #{$cursor-size * $scale-before-cursor}
+
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+    border-radius: 50%
+    border: 2px solid $c-accent-dark
+
+    pointer-events: none
+      
+     

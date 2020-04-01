@@ -1,0 +1,21 @@
+.hide
+  &-enter, &-leave
+    &-active
+      transition: opacity .15s ease
+
+  &-enter, &-leave-to 
+    opacity: 0
+
+.products
+  &-enter, &-leave
+    &-active
+      transition: opacity .4s ease, transform .3s ease-out
+
+  &-enter, &-leave-to 
+    opacity: 0
+  &-enter
+    transform: translateX(100px)
+    
+  &-enter-to, &-leave
+    opacity: 1
+    transform: translateX(0)

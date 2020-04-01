@@ -1,0 +1,51 @@
+{
+  "name": "aclon",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "Cheremnov Vladislav",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VlCheremnov/Aclon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VlCheremnov/Aclon/issues"
+  },
+  "homepage": "https://github.com/VlCheremnov/Aclon#readme",
+  "browserslist": [
+    "> 1%",
+    "ie >= 8",
+    "edge >= 15",
+    "ie_mob >= 10",
+    "ff >= 45",
+    "chrome >= 45",
+    "safari >= 7",
+    "opera >= 23",
+    "ios >= 7",
+    "android >= 4",
+    "bb >= 10"
+  ],
+  "dependencies": {
+    "gsap": "^3.2.5",
+    "nuxt": "^2.0.0",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^4.19.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "node-sass": "^4.13.0",
+    "postcss": "^7.0.18",
+    "sass-loader": "^7.3.1"
+  }
+}
