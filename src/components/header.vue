@@ -2,12 +2,13 @@
   <header class="header container">
     
     <!-- Лого -->
-    <logo :classes="['header-logo']"></logo>
-    
+    <logo :classes="['header-logo']" />
+
     <!-- Гамбургер -->
-    <div class="hamburger accent-font" data-action>
+    <div class="hamburger accent-font" :class="{'active': $store.state.menuOpen}" data-action @click="toggleMenu">
       <span class="hamburger__title">Меню</span>
 
+      <div class="hamburger__item"></div>
       <div class="hamburger__item"></div>
     </div>
 
@@ -28,6 +29,7 @@
         
         target="_blank"
         class="header-soc__link"
+        :class="{'accent-fill': $store.state.menuOpen}"
       >
       </a>
     </div>
@@ -106,7 +108,15 @@ export default {
         title: 'Lorem-6'
       },
     ]
-  })
+  }),
+
+  methods: {
+    toggleMenu () {
+      let isOpen = this.$store.state.menuOpen
+
+      this.$store.commit('setMenuOpen', !isOpen)
+    }
+  }
 }
 </script>
 

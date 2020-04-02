@@ -1,0 +1,44 @@
+// Гамбургер
+.hamburger
+	$left-indent: 3%
+	$item-height: 1px
+	$item-indent: 8px
+
+	padding: 20px
+
+	position: absolute
+	bottom: 50%
+	left: calc(#{$left-indent} - 20px)
+
+	color: $c-accent
+	font-size: 18px
+
+	z-index: 100
+
+	// Заголовок гамбургера
+	&__title
+		padding: 0 2px
+
+	// Итемы гамбургера
+	&__item
+		width: 100%
+		height: $item-height
+		background-color: $c-accent
+
+		position: relative
+
+		transition: width .2s ease, transform .2s ease
+
+		&:last-child
+			width: 83%
+			margin-top: $item-indent
+
+	&:hover &__item
+		width: 100%
+	
+	&.active &__item
+		width: 100%
+		transform: translateY(10px + $item-indent + $item-height) rotate(-45deg) scale(.8)
+		&:last-child
+			transform: translateY(10px) rotate(45deg) scale(.8)
+	

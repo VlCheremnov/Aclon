@@ -1,5 +1,8 @@
 // State
 export const state = () => ({
+
+  menuOpen: false,
+
   socList: [
     {
       id: 1,
@@ -37,7 +40,10 @@ export const getters = {
 
 // Mutations
 export const mutations = {
-
+  setMenuOpen (state, bool) {
+    console.log(state);
+    state.menuOpen = !!bool
+  }
 }
 
 // Actions

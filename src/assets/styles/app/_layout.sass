@@ -1,10 +1,33 @@
-.layout-line
-  display: block
+.separator
+  display: flex
+  justify-content: space-between
   width: 100%
   height: 100%
   box-sizing: border-box
-  padding: 0 120px
 
-  position: absolute
+  position: fixed
   top: 0
   left: 0
+
+  // background: red
+
+  z-index: -1
+
+  &__item
+    height: 100%
+    width: $w-section
+    max-width: $maxW-section
+    box-sizing: border-box
+
+    border-left: 1px solid rgba($c-main, .15)
+
+    &:first-child
+      border: none
+    &:first-child,&:last-child
+      flex-grow: 1
+      width: auto
+      max-width: 100%
+      min-width: $minW-section
+
+  &_transparent-color &__item
+    border: none

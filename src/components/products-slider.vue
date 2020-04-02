@@ -75,8 +75,8 @@
 </template>
 
 <script>
+
 export default {
-  
 
   props: {
     slides: Array
