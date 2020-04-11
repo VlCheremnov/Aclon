@@ -22,7 +22,7 @@
   "homepage": "https://github.com/VlCheremnov/Aclon#readme",
   "browserslist": [
     "> 1%",
-    "ie >= 8",
+    "ie >= 9",
     "edge >= 15",
     "ie_mob >= 10",
     "ff >= 45",

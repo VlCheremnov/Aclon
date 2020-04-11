@@ -2,6 +2,10 @@
   <!-- Слайдер -->
   <div class="products">
 
+    <!-- <div class="products-bar">
+      <div class="products-bar__progress"></div>
+    </div> -->
+
     <!-- Aside -->
     <div class="products-aside">
       
@@ -57,7 +61,6 @@
       <transition name="products" v-for="item in slides" :key="`product-transition-${item.id}`">
         <!-- Слайд -->
         <div
-          :key="`product-${item.id}`"
           v-show="item.id == currentSlide"
 
           class="products-item"

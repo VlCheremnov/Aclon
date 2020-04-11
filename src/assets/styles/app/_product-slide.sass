@@ -1,0 +1,28 @@
+.product-slide
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  height: 100%
+  padding: 20px 0
+
+  // Основное содержимое
+  &__content
+    box-sizing: border-box
+    display: flex
+    justify-content: flex-end
+    align-items: center
+
+  // Описание
+  &__description
+    box-sizing: border-box
+    width: #{$w-section * 2}
+    max-width: calc(#{$maxW-section} * 2)
+    padding: 0 30px
+
+  // Изображение
+  &__image
+    width: #{$w-section * 2 + 10} 
+    max-width: calc(100% - (100% - #{$maxW-section} * 2) / 2)
+    height: 100%
+    background: $c-accent-light

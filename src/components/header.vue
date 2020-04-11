@@ -1,8 +1,11 @@
 <template>
-  <header class="header container">
+  <header class="header slide" data-slide="0">
+
+    <!-- Выпадающее меню -->
+    <drop-menu :links="navLinks"></drop-menu>
     
     <!-- Лого -->
-    <logo :classes="['header-logo']" />
+    <logo class="header-logo" />
 
     <!-- Гамбургер -->
     <div class="hamburger accent-font" :class="{'active': $store.state.menuOpen}" data-action @click="toggleMenu">
@@ -20,7 +23,7 @@
 
       <!-- Список соц сетей -->
       <a 
-        v-for="item in $store.state.socList" 
+        v-for="item in $store.state.socList"
         :key="item.id"
 
         v-html="item.icon"
@@ -73,14 +76,19 @@
 
 import logo from '~/components/logo.vue';
 import productsSlider from '~/components/products-slider.vue';
+let dropMenu = () =>  import('~/components/drop-menu.vue');
 
 export default {
   components: {
     logo,
-    productsSlider
+    productsSlider,
+    dropMenu
   },
 
   data: () => ({
+    // Задержка
+    hamburgerCooldown: false,
+
     // Список товаров
     products: [
       {
@@ -107,11 +115,36 @@ export default {
         id: 5,
         title: 'Lorem-6'
       },
+    ],
+    
+    // Навигация
+    navLinks: [
+      {
+        id: 0,
+        title: 'О компании'
+      },
+      {
+        id: 1,
+        title: 'Продукт'
+      },
+      {
+        id: 2,
+        title: 'Стать партнером'
+      },
+      {
+        id: 3,
+        title: 'Контакты'
+      },
     ]
   }),
 
   methods: {
     toggleMenu () {
+      if (this.hamburgerCooldown) return;
+
+      this.hamburgerCooldown = true;
+      setTimeout(() => this.hamburgerCooldown = false, 200)
+
       let isOpen = this.$store.state.menuOpen
 
       this.$store.commit('setMenuOpen', !isOpen)

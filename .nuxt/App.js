@@ -16,7 +16,7 @@ import _6f6c098b from '..\\src\\layouts\\default.vue'
 const layouts = { "_default": _6f6c098b }
 
 export default {
-  head: {"htmlAttrs":{"lang":"ru"},"title":"Aclon","meta":[{"charset":"utf-8"},{"httpEquiv":"Content-Type","content":"text\u002Fhtml; charset=utf-8"},{"httpEquiv":"content-language","content":"ru"},{"name":"viewport","content":"width=device-width"},{"hid":"description","name":"description","content":"Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ficon\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=El+Messiri:400,500,600,700|Roboto:300,300i,400,400i,500,500i,700,700i,900&display=block&subset=cyrillic"}],"script":[{"src":"https:\u002F\u002Fcdn.polyfill.io\u002Fv2\u002Fpolyfill.js?features=Element.prototype.closest"}],"style":[]},
+  head: {"htmlAttrs":{"lang":"ru"},"title":"Aclon","meta":[{"charset":"utf-8"},{"httpEquiv":"Content-Type","content":"text\u002Fhtml; charset=utf-8"},{"httpEquiv":"content-language","content":"ru"},{"name":"viewport","content":"width=device-width"},{"hid":"description","name":"description","content":"Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ficon\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=El+Messiri:400,500,600,700|Roboto:300,300i,400,400i,500,500i,700,700i,900&display=block&subset=cyrillic"}],"script":[{"src":"https:\u002F\u002Fcdn.polyfill.io\u002Fv2\u002Fpolyfill.js"}],"style":[]},
 
   render (h, props) {
     const loadingEl = h('NuxtLoading', { ref: 'loading' })

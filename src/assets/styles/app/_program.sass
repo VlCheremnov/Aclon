@@ -1,0 +1,92 @@
+.program
+  // Блок страницы
+  &-layout
+    display: flex
+    flex-direction: column
+    height: 100%
+    max-height: 800px
+    padding-top: 20px
+    box-sizing: border-box
+
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+    &__title
+      padding-left: 10px
+  
+  // Слайдер
+  &-slider
+    flex-grow: 1
+    min-height: 300px
+
+    position: relative
+    &__slides
+      height: 100%
+    // Заглушка
+    &__stub
+      width: 25%
+      height: 70%
+
+      position: absolute
+      top: -100px
+      right: 25%
+
+      background: $c-main
+
+      z-index: -1
+    
+    &__arrow-wrapper
+      display: flex
+      height: 60px
+      width: 37.5%
+
+      position: absolute
+      right: 0
+      bottom: 0
+    
+    &__arrow
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 100%
+      fill: $c-accent
+      transition: fill .2s ease
+      &:hover
+        fill: $c-main
+  
+  // Слайд
+  &-slide
+    display: flex
+    justify-content: flex-end
+    align-items: flex-end
+    height: 100%
+    width: 100%
+    margin-top: -60px
+
+    position: absolute
+    top: 0
+    right: 0
+
+    &__side-block
+      display: flex
+      justify-content: center
+      flex-direction: column
+      height: calc(30% + 100px)
+      margin-bottom: -60px
+      margin-right: 40px
+
+    &__title
+      letter-spacing: 0
+      font-weight: normal
+      font-size: 45px
+
+    &__description
+      width: 300px
+    
+    &__image
+      height: 100%
+      width: 37.5%
+      transform-origin: center left
+  

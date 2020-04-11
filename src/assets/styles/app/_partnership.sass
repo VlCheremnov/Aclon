@@ -1,0 +1,115 @@
+.partnership
+  &-layout
+    height: 100%
+    position: relative
+
+    &__image-wrapper
+      height: 70%
+
+      position: absolute
+      left: 50%
+      bottom: 0
+
+      transform: translateX(-50%)
+
+      z-index: 3
+
+    &__image
+      width: 37.5%
+      height: 100%
+
+      position: absolute
+      bottom: 0
+      left: 0
+
+      background-color: $c-secondary
+    
+    &__button
+      position: absolute
+      left: 50%
+      top: 530px
+
+      z-index: 5
+  
+  // Основное содержимое
+  &-content
+    display: flex
+    justify-content: center
+    align-items: flex-start
+    width: 100%
+
+    position: relative
+
+    background: url('/img/partnership-background.jpg') 
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center
+
+    color: $c-white
+
+    // Затемнение бекграунда
+    &::before
+      content: ''
+      width: 100%
+      height: 100%
+
+      position: absolute
+      left: 0
+      top: 0
+      
+      background-color: rgba($c-main, 0.9)
+
+      z-index: 1
+    
+    // Блок контента
+    &__side-block
+      padding: 3.5em 2em
+      width: 100%
+      box-sizing: border-box
+      
+      position: relative
+      z-index: 2
+    
+    // Заголовок
+    &__title
+      font-weight: normal
+      font-size: 36px
+  
+  // Блок продукции
+  &-production
+    display: flex
+    align-items: flex-end
+    flex-direction: column
+  
+  // Блок с преимуществами
+  &-advantages
+    &__list
+      position: relative
+      // Разделитель
+      &::after
+        content: ''
+
+        width: 1px
+        height: 100%
+
+        position: absolute
+        left: -2em
+        top: 0
+        
+        background-color: $c-white
+    // Элемент списка
+    &__item
+      padding-top: 10px
+      &:first-child
+        padding-top: 0px
+    
+    // Заголовок элемента
+    &__title
+      font-size: 32px
+      font-weight: normal
+    
+    // Описание элемента
+    &__description
+      font-weight: normal
+      font-size: 16px
+      line-height: 19px

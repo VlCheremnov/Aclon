@@ -3,8 +3,8 @@ import { gsap } from 'gsap'
 export default class Cursor {
   constructor () {
     // DOM элементы
-    this.el = document.querySelector('.custom-cursor')
-    this.elOuter = document.querySelector('.custom-cursor__outer')
+    this.el = this.createCursor()
+    this.elOuter = this.createOuterCursor()
 
     // Размеры курсора
     this.scale = {
@@ -30,6 +30,30 @@ export default class Cursor {
     }
 
     this.addEvent()
+  }
+
+  createCursor () {
+    let cursor = document.querySelector('.custom-cursor');
+
+    if (cursor) return cursor;
+
+    let div = document.createElement('div');
+    div.classList.add('custom-cursor');
+    document.body.prepend(div);
+
+    return div;
+  }
+
+  createOuterCursor () {
+    let outerCursor = document.querySelector('.custom-cursor__outer');
+
+    if (outerCursor) return outerCursor;
+
+    let div = document.createElement('div');
+    div.classList.add('custom-cursor__outer');
+    this.el.append(div);
+
+    return div;
   }
 
   setCursorEffects (effect, bool = false) {

@@ -43,8 +43,7 @@ module.exports = {
 
   // Plugins
   plugins: [
-    // '~plugins/throttle.client.js',
-    // '~plugins/cursor.client.js'
+    // '~plugins/throttle.client.js'
   ],
 
   // Headers of the page
@@ -74,7 +73,7 @@ module.exports = {
     
     script: [
       // Полифиллы
-      {src: 'https://cdn.polyfill.io/v2/polyfill.js?features=Element.prototype.closest'}
+      {src: 'https://cdn.polyfill.io/v2/polyfill.js'}
     ]
   },
   
