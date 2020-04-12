@@ -56,7 +56,7 @@
     <!-- Конец заголовка -->
 
     <!-- Слайдер с товарами -->
-    <products-slider :slides="products">
+    <products-slider :slides="products" data-y="30">
 
       <!-- Кнопка скролла вниз -->
       <div class="header-button" data-action>

@@ -51,7 +51,7 @@
 
       <!-- Изображение -->
       <div class="container partnership-layout__image-wrapper">
-        <div class="partnership-layout__image"></div>
+        <div class="partnership-layout__image" data-y="100" data-scale="1.5"></div>
       </div>
 
       <!-- Кнопка -->

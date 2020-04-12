@@ -6,7 +6,7 @@
     <div class="product-slide">
 
       <!-- Заголовок -->
-      <h2 class="title title_center">Наш <span class="title__line">продукт</span></h2>
+      <h2 class="title title_center" data-y="-130">Наш <span class="title__line">продукт</span></h2>
 
       <!-- Основное содержимое -->
       <div class="product-slide__content">
@@ -17,12 +17,12 @@
         </p>
 
         <!-- Изображение -->
-        <div class="product-slide__image"></div>
+        <div class="product-slide__image" data-alpha data-x="10"></div>
       </div>
       <!-- Конец основного содержимого -->
 
       <!-- Кнопка -->
-      <nuxt-link to="/" class="button button_center">Подробнее</nuxt-link>
+      <div data-y="-300"><nuxt-link to="/" class="button button_center">Подробнее</nuxt-link></div>
     </div>
   </section>
 </template>

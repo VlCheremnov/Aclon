@@ -9,10 +9,12 @@
 
   color: $c-white
   
+  // Бекграунд
   &-background
     width: 100%
     height: 100%
     position: relative
+    overflow: hidden
 
     &__image
       display: block
@@ -30,6 +32,7 @@
     &__separator
       z-index: 0
   
+  // Форма 
   &-form
     flex-grow: 1
     position: relative
@@ -48,12 +51,15 @@
       right: 0
 
       background: rgba($c-main, .7)
+
+    // Заголовок формы
     &__title
       padding-bottom: 30px
       font-weight: normal
       font-size: 37px
       letter-spacing: 0.04em
     
+    // Кнопка формы
     &__button
       overflow: hidden
       width: 100%
@@ -67,6 +73,7 @@
       font-size: 24px
       letter-spacing: 0.04em
 
+      // Линия кнопки
       &::before
         content: ''
 
@@ -86,6 +93,7 @@
       &:hover::before
         transform: translate(-50%, -50%)
   
+  // Навигация футера
   &-nav
     display: flex
     justify-content: space-between
@@ -95,11 +103,13 @@
 
     z-index: 5
 
+    // Левый и правый блоки
     &__block
       display: flex
       justify-content: space-between
       width: 50%
   
+  // Лого
   &-logo
     flex-direction: column
     justify-content: flex-start
@@ -110,6 +120,7 @@
     &__rights
       padding-top: 20px
   
+  // Список
   &-list
     box-sizing: border-box
     width: 100%
@@ -117,6 +128,7 @@
     &__link
       padding: 5px 0
 
+  // Соц кнопки
   &-soc
     display: flex
     justify-content: space-between

@@ -5,10 +5,10 @@
     <!-- Блок "О нас" -->
     <div class="container about">
 
-      <img src="/img/quotes.svg" alt="quotes" class="about__quotes">
+      <img src="/img/quotes.svg" alt="quotes" class="about__quotes" data-y="-100">
 
       <!-- Изображение -->
-      <div class="about__item">
+      <div class="about__item" data-y="100">
         <div class="about__image"></div>
       </div>
 

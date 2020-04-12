@@ -9,7 +9,7 @@
         <div class="footer-background">
 
           <!-- Бекграунд -->
-          <img src="/img/footer-background.jpg" alt="footer background" class="footer-background__image">
+          <img src="/img/footer-background.jpg" alt="footer background" class="footer-background__image" data-scale="1.4">
 
           <!-- Разделители -->
           <div class="separator footer-background__separator">
@@ -24,7 +24,7 @@
         <!-- Конец бекграунда -->
         
         <!-- Форма -->
-        <form class="footer-form__wrapper">
+        <form class="footer-form__wrapper" data-alpha>
           <!-- Заголовок -->
           <h4 class="footer-form__title">Получить консультацию</h4>
 

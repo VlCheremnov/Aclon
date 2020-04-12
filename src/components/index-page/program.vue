@@ -6,7 +6,7 @@
     <div class="container program-layout">
 
       <!-- Заголовок -->
-      <h2 class="title program-layout__title">
+      <h2 class="title program-layout__title" data-y="-100">
         Уникальные
         <span class="title__line">оздоровительные</span>
         <div>программы</div>
@@ -17,7 +17,7 @@
       <div class="program-slider">
 
         <!-- Заглушка -->
-        <div class="program-slider__stub"></div>
+        <div class="program-slider__stub" data-y="80"></div>
 
         <!-- Обертка слайдов-->
         <div class="program-slider__slides">
@@ -32,7 +32,7 @@
           >
             <div v-if="item-1 == currentSlide" class="program-slide">
               <!-- Блок -->
-              <div class="program-slide__side-block">
+              <div class="program-slide__side-block" data-alpha>
                 <!-- Заголовок слайда -->
                 <h3 class="program-slide__title">{{programSlide.title}} - {{item}}</h3>
 
@@ -41,7 +41,7 @@
               </div>
 
               <!-- Изображение -->
-              <div class="program-slide__image" :style="`background: ${programSlide.image}`"></div>
+              <div class="program-slide__image" :style="`background: ${programSlide.image}`" data-scale="1.3"></div>
 
             </div>
           </transition>

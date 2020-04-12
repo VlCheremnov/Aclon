@@ -16,7 +16,7 @@ export default class SliderPage {
 
     if (commit) commit('setSlidesLength', this.slidesLength);
 
-    this.setSlide({slide: 3});
+    this.setSlide({slide: 0});
     this.addedEvent();
   };
 
@@ -70,8 +70,16 @@ export default class SliderPage {
     let tl = this.timelineInit('next');
     if (!tl) return;
 
+    let verticalAnim = slide.querySelectorAll('[data-y]');
+    let horizontalAnim = slide.querySelectorAll('[data-x]');
+    let scaleAnim = slide.querySelectorAll('[data-scale]');
+    let alphaAnim = slide.querySelectorAll('[data-alpha]');
+
+    // Показываем слайд
     tl.set(slide, {css: {display: 'block'}});
-    tl.fromTo(slide, .4, 
+
+    // Анимация скролла
+    tl.fromTo(slide, .6, 
       {
         yPercent: () => (this.direction > 0)?140:-140
       }, 
@@ -80,6 +88,34 @@ export default class SliderPage {
         onComplete: () => this.cooldown = false  
       }
     );
+    
+    // Вертикальная анимация
+    if (verticalAnim) {
+      tl.fromTo(
+        verticalAnim, 
+        .6, 
+        {
+          yPercent: (i, el) => (this.direction > 0)? el.dataset.y : -el.dataset.y
+        }, 
+        {
+          yPercent: 0
+        }, 0
+      );
+    };
+
+    // Горизонтальная анимация
+    if (horizontalAnim)
+      tl.fromTo(horizontalAnim, .3, {xPercent: (i, el) => el.dataset.x}, {xPercent: 0}, .3);
+    
+    // Анимация размера
+    if (scaleAnim)
+      tl.fromTo(scaleAnim, .6, {scale: (i, el) => el.dataset.scale}, {scale: 1}, 0);
+    
+    // Анимация появления
+    if (alphaAnim)
+      tl.fromTo(alphaAnim, .3, {opacity: 0}, {opacity: 1}, .3);
+
+
   };
 
   animPrevSlide (slide) {
@@ -87,7 +123,7 @@ export default class SliderPage {
     let tl = this.timelineInit('prev');
     if (!tl) return;
 
-    tl.fromTo(slide, .4, 
+    tl.fromTo(slide, .6, 
       { yPercent: 0 }, 
       {
         yPercent: () => (this.direction > 0)?-140:140, 
