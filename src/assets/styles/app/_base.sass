@@ -3,6 +3,12 @@
 	.accent-font,h#{$i}
 		font-family: 'El Messiri', sans-serif
 
+body
+	+r($m)
+		font-size: 14px
+	+r($xsm)
+		font-size: 11px
+
 // Слайды
 .slide
 	display: none
@@ -12,6 +18,15 @@
 	position: fixed
 	top: 0
 	left: 0
+
+	+r($m)
+		display: block
+		height: auto
+		margin-bottom: 120px
+
+		position: relative
+		&:last-child
+			margin-bottom: 0
 
 // Квадратные кнопки
 .square-button
@@ -33,13 +48,19 @@
 	&:hover &__icon
 		fill: $c-white
 
+	+r($sm)
+		width: 60px
+		height: 60px
+
 // Заголовок
 .title
 	display: block
 
 	font-weight: normal
-	font-size: 64px
+	font-size: 4em
+	line-height: 100px
 	letter-spacing: 0.04em
+
 	&_center
 		margin: 0 auto
 
@@ -84,7 +105,7 @@
 	font-weight: normal
 	text-align: center
 	color: $c-accent
-	font-size: 22px
+	font-size: 20px
 	letter-spacing: 0.04em
 
 	transition: .2s ease-out
@@ -115,11 +136,20 @@
 		min-width: 170px
 		line-height: 65px
 		text-align: center
+		font-size: 16px
 		border-right: 1px solid rgba($c-main, .15)
 		color: $c-accent
+		&::after
+			content: attr(data-label)
+		+r($xsm)
+			min-width: 100px
+			&::after
+				content: attr(data-smlabel)
+
 	
 	&__field
 		width: 100%
 		box-sizing: border-box
 		padding: 0 20px
 		line-height: 65px
+		font-size: 16px

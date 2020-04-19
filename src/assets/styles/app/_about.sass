@@ -10,9 +10,8 @@
     width: 23%
 
     position: absolute
-    right: 12.5%
+    right: .5%
     top: 5%
-    transform: translateX(50%)
 
     z-index: -1
 
@@ -25,8 +24,6 @@
     flex-direction: column
     padding: 10px 30px 0
     box-sizing: border-box
-
-    position: relative
   
   // Изображение
   &__image
@@ -42,3 +39,49 @@
   &__description
     width: 80%
     padding-bottom: 40px
+
+    +r($lr)
+      width: 100%
+  
+  +r($sm)
+    flex-direction: column
+    &__image
+      height: 460px
+    &__title
+      position: absolute
+      top: 350px
+      left: 50%
+      transform: translateX(-50%)
+    &__quotes
+      width: 37%
+      left: 55%
+      top: 130px
+    &__content
+      width: 100%
+      padding: 30px 0 0
+    &__description
+      width: 80%
+    &__button
+      margin: 0 auto
+  
+  +r($xsm)
+    padding-top: 100px
+    &__item
+      width: 100%
+    &__image
+      height: 400px
+    &__description
+      width: 100%
+      text-align: center
+
+    &__title
+      width: 100%
+      
+      position: absolute
+      top: 0px
+      left: 50%
+      transform: translateX(-50%)
+
+      text-align: center
+    &__quotes
+      display: none

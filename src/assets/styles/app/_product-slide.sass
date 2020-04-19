@@ -4,7 +4,7 @@
   flex-direction: column
   justify-content: space-around
   height: 100%
-  padding: 20px 0
+  padding-bottom: 20px
 
   // Основное содержимое
   &__content
@@ -12,6 +12,7 @@
     display: flex
     justify-content: flex-end
     align-items: center
+    padding-bottom: 15px
 
   // Описание
   &__description
@@ -19,10 +20,36 @@
     width: #{$w-section * 2}
     max-width: calc(#{$maxW-section} * 2)
     padding: 0 30px
+    +r($lr)
+      padding: 0 20px 0 0
 
   // Изображение
   &__image
     width: #{$w-section * 2 + 10} 
     max-width: calc(100% - (100% - #{$maxW-section} * 2) / 2)
     height: 100%
+    min-height: 250px
     background: $c-accent-light
+
+  +r($m)
+    &__content
+      padding-bottom: 50px
+  
+  +r($sm)
+    &__content
+      flex-direction: column-reverse
+      width: 100%
+      padding-bottom: 0
+    &__description
+      box-sizing: border-box
+      width: 100%
+      padding: 60px 20px
+      text-align: center
+    &__image
+      width: 100%
+      height: 50%
+      max-width: none
+  
+  +r($sm)
+    &__button
+      width: calc(100% - 40px)

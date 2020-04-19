@@ -11,7 +11,7 @@
     </div>
 
     <!-- Шапка -->
-    <header-template/>
+    <header-template @next-slide="nextSlide()" />
 
     <!-- Основная часть -->
     <nuxt/>
@@ -22,10 +22,11 @@
 </template>
 
 <script>
-import headerTemplate from '~/components/header.vue'
-import footerTemplate from '~/components/footer.vue'
-import Cursor from '~/modules/cursor.js'
-import SliderPage from '~/modules/main-slider_page.js'
+import headerTemplate from '~/components/header.vue';
+import footerTemplate from '~/components/footer.vue';
+
+let Cursor = () => import('~/modules/cursor.js');
+let SliderPage = () => import('~/modules/main-slider_page.js');
 
 export default {
 
@@ -35,9 +36,31 @@ export default {
     footerTemplate
   },
 
+  data: () => ({
+    slider: null
+  }),
+
+  methods: {
+    nextSlide () {
+      this.slider.setSlide({slide: 1})
+    }
+  },
+
   mounted () {
-    new Cursor();
-    new SliderPage(this.$store);
+
+    // Проверка на мобильное устройство
+    if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+
+      // Курсор
+      new Cursor()
+        .then((module) => new module.default())
+        .catch(() => document.querySelector('html').style.cursor = 'default');
+
+      // Слайдер страниц
+      new SliderPage()
+        .then((module) => this.slider = new module.default(this.$store))
+        .catch((err) => console.log(err));
+    }
   }
 }
 </script>

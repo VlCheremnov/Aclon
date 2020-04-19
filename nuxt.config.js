@@ -32,7 +32,7 @@ module.exports = {
   mode: 'spa',
 
   // Preloader
-  loading: { color: '#3B8070' },
+  loading: false,
   // loading: '~/components/loader.vue',
 
   // Modules
@@ -59,7 +59,7 @@ module.exports = {
       { httpEquiv: 'Content-Type', content: 'text/html; charset=utf-8'},
       { httpEquiv: 'content-language', content: 'ru'},
 
-      { name: 'viewport', content: 'width=device-width' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
 

@@ -6,9 +6,6 @@ import {
   globalHandleError
 } from './utils'
 
-import NuxtLoading from './components/nuxt-loading.vue'
-import NuxtBuildIndicator from './components/nuxt-build-indicator'
-
 import '..\\src\\assets\\styles\\index.sass'
 
 import _6f6c098b from '..\\src\\layouts\\default.vue'
@@ -16,11 +13,9 @@ import _6f6c098b from '..\\src\\layouts\\default.vue'
 const layouts = { "_default": _6f6c098b }
 
 export default {
-  head: {"htmlAttrs":{"lang":"ru"},"title":"Aclon","meta":[{"charset":"utf-8"},{"httpEquiv":"Content-Type","content":"text\u002Fhtml; charset=utf-8"},{"httpEquiv":"content-language","content":"ru"},{"name":"viewport","content":"width=device-width"},{"hid":"description","name":"description","content":"Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ficon\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=El+Messiri:400,500,600,700|Roboto:300,300i,400,400i,500,500i,700,700i,900&display=block&subset=cyrillic"}],"script":[{"src":"https:\u002F\u002Fcdn.polyfill.io\u002Fv2\u002Fpolyfill.js"}],"style":[]},
+  head: {"htmlAttrs":{"lang":"ru"},"title":"Aclon","meta":[{"charset":"utf-8"},{"httpEquiv":"Content-Type","content":"text\u002Fhtml; charset=utf-8"},{"httpEquiv":"content-language","content":"ru"},{"name":"viewport","content":"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"},{"hid":"description","name":"description","content":"Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ficon\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=El+Messiri:400,500,600,700|Roboto:300,300i,400,400i,500,500i,700,700i,900&display=block&subset=cyrillic"}],"script":[{"src":"https:\u002F\u002Fcdn.polyfill.io\u002Fv2\u002Fpolyfill.js"}],"style":[]},
 
   render (h, props) {
-    const loadingEl = h('NuxtLoading', { ref: 'loading' })
-
     const layoutEl = h(this.layout || 'nuxt')
     const templateEl = h('div', {
       domProps: {
@@ -49,8 +44,7 @@ export default {
         id: '__nuxt'
       }
     }, [
-      loadingEl,
-      h(NuxtBuildIndicator),
+
       transitionEl
     ])
   },
@@ -83,13 +77,6 @@ export default {
     this.context = this.$options.context
   },
 
-  mounted () {
-    this.$loading = this.$refs.loading
-  },
-  watch: {
-    'nuxt.err': 'errorChanged'
-  },
-
   computed: {
     isOffline () {
       return !this.isOnline
@@ -116,7 +103,6 @@ export default {
       if (!pages.length) {
         return
       }
-      this.$loading.start()
 
       const promises = pages.map((page) => {
         const p = []
@@ -141,29 +127,12 @@ export default {
       try {
         await Promise.all(promises)
       } catch (error) {
-        this.$loading.fail()
         globalHandleError(error)
         this.error(error)
-      }
-      this.$loading.finish()
-    },
-
-    errorChanged () {
-      if (this.nuxt.err && this.$loading) {
-        if (this.$loading.fail) {
-          this.$loading.fail()
-        }
-        if (this.$loading.finish) {
-          this.$loading.finish()
-        }
       }
     },
 
     setLayout (layout) {
-      if(layout && typeof layout !== 'string') {
-        throw new Error('[nuxt] Avoid using non-string value as layout property.')
-      }
-
       if (!layout || !layouts['_' + layout]) {
         layout = 'default'
       }
@@ -178,8 +147,4 @@ export default {
       return Promise.resolve(layouts['_' + layout])
     }
   },
-
-  components: {
-    NuxtLoading
-  }
 }

@@ -25,7 +25,7 @@
           <!-- Слайд -->
           <transition 
             @enter="enterAnim" 
-            @leave="leaveAnim" 
+            @leave="leaveAnim"
             
             v-for="item in slidesLength" 
             :key="`program-slide-${item}`"
@@ -34,7 +34,7 @@
               <!-- Блок -->
               <div class="program-slide__side-block" data-alpha>
                 <!-- Заголовок слайда -->
-                <h3 class="program-slide__title">{{programSlide.title}} - {{item}}</h3>
+                <h3 class="program-slide__title">{{programSlide.title}}-{{item}}</h3>
 
                 <!-- Описание -->
                 <div class="description program-slide__description">{{programSlide.description}}</div>
@@ -127,7 +127,8 @@ export default {
 
     leaveAnim (el, done) {
       let tl = gsap.timeline();
-      tl.fromTo(el, .2, {opacity: 1}, {opacity: 0, onComplete: done})
+      tl.set(el, {css: {position: 'absolute'}});
+      tl.fromTo(el, .2, {opacity: 1}, {opacity: 0, onComplete: done});
     }
   }
 

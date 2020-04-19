@@ -37,7 +37,7 @@
             class="input"
             data-action=""
           >
-            <label class="input__label" :for="item.id">{{item.label}}</label>
+            <label class="input__label" :for="item.id" :data-label="item.label" :data-smlabel="item.smlabel"></label>
             <input :type="item.type" class="input__field" :id="item.id">
           </div>
           <!-- Конец инпута -->
@@ -115,16 +115,19 @@ export default {
     fields: [
       {
         label: 'Ваше имя',
+        smlabel: 'Имя',
         id: 'name',
         type: 'text'
       },
       {
         label: 'Ваш email',
+        smlabel: 'Email',
         id: 'email',
         type: 'text'
       },
       {
         label: 'Ваш телефон',
+        smlabel: 'Телефон',
         id: 'num',
         type: 'tel'
       },

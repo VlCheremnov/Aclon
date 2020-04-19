@@ -26,7 +26,7 @@
         </p>
 
         <!-- Кнопка -->
-        <nuxt-link to="/" class="button">Подробнее</nuxt-link>
+        <nuxt-link to="/" class="button about__button">Подробнее</nuxt-link>
       </div>
     </div>
   </section>

@@ -1,5 +1,5 @@
 <template>
-  <main class="container">
+  <main>
 
     <component 
       v-for="(item, index) in componentsList" 

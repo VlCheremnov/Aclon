@@ -13,7 +13,7 @@
           <div>
             <h4 class="partnership-content__title">Купить продукцию</h4>
 
-            <nuxt-link class="partnership-content__link" to="/">В магазин</nuxt-link>
+            <nuxt-link class="accent-font partnership-content__link" to="/">В магазин</nuxt-link>
           </div>
         </div>
 

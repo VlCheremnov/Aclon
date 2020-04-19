@@ -2,19 +2,21 @@ import gsap from 'gsap';
 
 export default class SliderPage {
 
-  constructor ({commit = null} = {}) {
+  constructor ($store = null) {
     this.lastSlide = null;
     this.currentSlide = null;
     this.slidesLength = document.querySelectorAll(`[data-slide]`).length;
     this.direction = -1;
     this.cooldown = false;
+    this.$store = $store;
 
     this.timelines = {
       next: null,
       prev: null
     };
 
-    if (commit) commit('setSlidesLength', this.slidesLength);
+    console.log($store);
+    if ($store && $store.commit) $store.commit('setSlidesLength', this.slidesLength);
 
     this.setSlide({slide: 0});
     this.addedEvent();
@@ -25,8 +27,16 @@ export default class SliderPage {
     slide = null // Следующий слайд
   }) {
 
-    // Выходим, если нет слайдов или действует колдаун
-    if (!this.slidesLength || this.cooldown) return;
+    console.log('ep')
+
+    // Выходим, если 
+    if (
+      (this.$store && this.$store.state.menuOpen) || // Открыто меню
+      !this.slidesLength ||  // Нет слайдов
+      this.cooldown  ||  // Действует колдаун
+      window.innerWidth <= 992 // Устройство с маленьким экраном
+    ) return;
+    console.log('ep2')
 
     // Последний слайд
     let lastSlide = this.currentSlide;
@@ -90,7 +100,8 @@ export default class SliderPage {
     );
     
     // Вертикальная анимация
-    if (verticalAnim) {
+    if (verticalAnim.length > 0) {
+      tl.set(verticalAnim, {xPercent: (i, el) => (el.dataset.sx)? el.dataset.sx : 0}, 0)
       tl.fromTo(
         verticalAnim, 
         .6, 
@@ -104,15 +115,15 @@ export default class SliderPage {
     };
 
     // Горизонтальная анимация
-    if (horizontalAnim)
+    if (horizontalAnim.length > 0)
       tl.fromTo(horizontalAnim, .3, {xPercent: (i, el) => el.dataset.x}, {xPercent: 0}, .3);
     
     // Анимация размера
-    if (scaleAnim)
+    if (scaleAnim.length > 0)
       tl.fromTo(scaleAnim, .6, {scale: (i, el) => el.dataset.scale}, {scale: 1}, 0);
     
     // Анимация появления
-    if (alphaAnim)
+    if (alphaAnim.length > 0)
       tl.fromTo(alphaAnim, .3, {opacity: 0}, {opacity: 1}, .3);
 
 
@@ -130,7 +141,7 @@ export default class SliderPage {
         onComplete: () => this.cooldown = false 
       }
     );
-    tl.set(slide, {css: {display: null}});
+    tl.set(slide, {css: {display: null, transform: null}});
   };
 
   timelineInit (state = null) {

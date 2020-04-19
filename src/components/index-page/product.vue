@@ -22,7 +22,7 @@
       <!-- Конец основного содержимого -->
 
       <!-- Кнопка -->
-      <div data-y="-300"><nuxt-link to="/" class="button button_center">Подробнее</nuxt-link></div>
+      <div data-y="-300"><nuxt-link to="/" class="button button_center product-slide__button">Подробнее</nuxt-link></div>
     </div>
   </section>
 </template>

@@ -26,7 +26,7 @@
       <!-- Конец ссылки -->
       
       <!-- Заглушка с правого края -->
-      <div class="separator__item drop-menu__item"><div class="drop-menu__item-wrapper"></div></div>
+      <div class="separator__item drop-menu__item drop-menu__sm-hide"><div class="drop-menu__item-wrapper"></div></div>
     </nav>
   </transition>
 </template>
@@ -60,6 +60,10 @@ export default {
     enterAnim (el, done) {
       let {images, titles, items, tl} = this.AnimInit(el);
 
+      let html = document.querySelector('html');
+      html.style.overflow = 'hidden';
+      window.scrollTo(0, 0)
+
       tl.set(items, {css: {marginLeft: '0', marginRight: 'auto'}})
         .set(images, {css: {display: null}});
 
@@ -69,6 +73,9 @@ export default {
 
     leaveAnim (el, done) {
       let {images, titles, items, tl} = this.AnimInit(el);
+
+      let html = document.querySelector('html');
+      html.style.overflow = null;
       
       tl.set(items, {css: {marginLeft: 'auto', marginRight: '0'}})
         .set(images, {css: {display: 'none'}});

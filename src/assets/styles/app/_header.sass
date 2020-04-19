@@ -1,5 +1,7 @@
 // Header
 .header
+	height: 100%
+	min-height: 100vh
 	$left-indent: 3%
 
 	// Кнопка в хедере
@@ -11,6 +13,8 @@
 		bottom: 0
 
 		z-index: 20
+		+r ($m)
+			display: none
 		&__wrapper
 			display: flex
 			justify-content: center
@@ -46,7 +50,7 @@
 		top: 50%
 		transform: translateY(-40%)
 
-		z-index: 20
+		z-index: 11
 
 		&__description
 			display: block
@@ -65,7 +69,7 @@
 			display: flex
 			flex-direction: column
 
-			font-size: 72px
+			font-size: 4.5em
 			line-height: 1.1em
 			font-weight: 500
 
@@ -91,7 +95,7 @@
 			position: relative
 
 			white-space: nowrap
-			font-size: 18px
+			font-size: 1.13em
 			letter-spacing: 0.04em
 			color: $c-accent
 
@@ -128,3 +132,28 @@
 
 			&.accent-fill, &:hover
 				fill: $c-accent
+
+	+r($sm)
+		&-soc
+			display: none
+		&-title
+			margin-top: -120px
+			padding: 0 45px
+			width: 100%
+			box-sizing: border-box
+
+			position: relative
+			left: auto
+			top: auto
+			transform: none
+
+			&__description
+				padding-top: 20px
+				width: 80%
+				position: static
+				transform: none
+	+r($xsm)
+		&-title
+			margin-top: 40px
+				
+		

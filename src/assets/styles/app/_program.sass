@@ -13,8 +13,19 @@
     left: 50%
     transform: translate(-50%, -50%)
 
+    +r($m)
+
     &__title
       padding-left: 10px
+      line-height: 1.5em
+
+      position: relative
+      z-index: 25
+
+      +r(440)
+        font-size: 33px
+
+      
   
   // Слайдер
   &-slider
@@ -22,6 +33,7 @@
     min-height: 300px
 
     position: relative
+    z-index: 1
     &__slides
       height: 100%
     // Заглушка
@@ -45,6 +57,12 @@
       position: absolute
       right: 0
       bottom: 0
+
+      +r($m)
+        width: auto
+        bottom: auto
+        top: 100%
+        right: 0
     
     &__arrow
       display: flex
@@ -55,6 +73,9 @@
       transition: fill .2s ease
       &:hover
         fill: $c-main
+      +r($m)
+        &:first-child
+          margin-right: 20px
   
   // Слайд
   &-slide
@@ -63,10 +84,9 @@
     align-items: flex-end
     height: 100%
     width: 100%
-    margin-top: -60px
 
     position: absolute
-    top: 0
+    top: -60px
     right: 0
 
     &__side-block
@@ -80,7 +100,7 @@
     &__title
       letter-spacing: 0
       font-weight: normal
-      font-size: 45px
+      font-size: 2.82em
 
     &__description
       width: 300px
@@ -89,4 +109,63 @@
       height: 100%
       width: 37.5%
       transform-origin: bottom left
-  
+
+  +r($m)
+    &-layout
+      max-height: none
+      height: auto
+      position: relative
+      top: 0
+      left: 0
+      transform: none
+      padding-bottom: 100px
+
+      &__title
+        padding-left: 0
+
+    &-slide
+      top: 0
+      
+    &-slider
+      &__stub
+        top: -40px
+      &__arrow-wrapper
+        width: auto
+        bottom: auto
+        top: 100%
+        right: 0
+  +r($sm)
+    &-slider
+      margin-top: -70px
+      &__stub
+        display: none
+      &__arrow-wrapper
+        justify-content: center
+        margin-top: 40px
+
+        position: relative
+        top: 0
+      &__arrow
+        width: auto
+    &-slide
+      flex-direction: column-reverse
+      height: auto
+
+      position: relative
+      &__side-block
+        width: 100%
+        margin: 0
+        padding-top: 40px
+      &__image
+        height: 300px
+        width: 70%
+  +r($xsm)
+    &-slider
+      margin-top: 20px
+    &-slide
+      text-align: center
+      &__image
+        height: 80vw
+        width: 100%
+      &__description
+        margin: 0 auto

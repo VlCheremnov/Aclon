@@ -2,9 +2,10 @@
   width: $w-section * 3 + (100 - ($w-section * 4))/2
   max-width: calc( (100% - #{$maxW-section} * 4)/2 + #{$maxW-section} * 3 )
   height: 100%
-  margin-left: auto
 
   position: relative
+  margin-left: auto
+
   &__wrapper
     height: 100%
 
@@ -57,12 +58,11 @@
       display: block
       max-width: 400px
 
-      font-size: 30px
+      font-size: 1.88em
       font-weight: normal
       letter-spacing: 0.04em
     
     &__description
-      font-size: 16px
       letter-spacing: 0.04em
       color: $c-secondary
 
@@ -82,3 +82,18 @@
       transition: .2s ease
 
       background: $c-main
+
+  +r($m)
+    max-width: none
+    height: 100vh
+    min-height: 550px
+
+  +r($sm)
+    width: 100%
+    &-aside
+      &__description
+        display: none
+    &-nav
+      width: 130px
+      right: 10px
+      bottom: 10px
